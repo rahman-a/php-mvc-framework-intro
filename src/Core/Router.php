@@ -3,43 +3,44 @@
 namespace Core;
 
 use Exception;
+use Core\Middleware\Middleware;
 
 class Router
 {
     protected $routes = [];
 
-    protected function add($route, $controller, $method, $middleware = null)
+    protected function add($uri, $controller, $method, $middleware = null)
     {
         $this->routes[] = [
-            "uri" =>  $route,
+            "uri" =>  $uri,
             "controller" => $controller,
             "method" => $method,
             "middleware" => $middleware
         ];
     }
-    public function get($route, $controller)
+    public function get($uri, $controller)
     {
-        $this->add($route, $controller, 'GET');
+        $this->add($uri, $controller, 'GET');
         return $this;
     }
-    public function post($route, $controller)
+    public function post($uri, $controller)
     {
-        $this->add($route, $controller, 'POST');
+        $this->add($uri, $controller, 'POST');
         return $this;
     }
-    public function patch($route, $controller)
+    public function patch($uri, $controller)
     {
-        $this->add($route, $controller, 'PATCH');
+        $this->add($uri, $controller, 'PATCH');
         return $this;
     }
-    public function put($route, $controller)
+    public function put($uri, $controller)
     {
-        $this->add($route, $controller, 'PUT');
+        $this->add($uri, $controller, 'PUT');
         return $this;
     }
-    public function delete($route, $controller)
+    public function delete($uri, $controller)
     {
-        $this->add($route, $controller, 'DELETE');
+        $this->add($uri, $controller, 'DELETE');
         return $this;
     }
 
@@ -49,6 +50,7 @@ class Router
         return $this;
     }
 
+    // for test purpose
     public function getRoutes()
     {
         return $this->routes;

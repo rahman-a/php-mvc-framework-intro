@@ -1,4 +1,5 @@
 <?php
 
-
-echo 'This Message From Controllers Page';
+views("index.php", [
+    "page" => "PHP Demo Redo"
+]);

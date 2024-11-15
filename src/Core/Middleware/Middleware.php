@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\Middleware;
 
 use Core\Middleware\Authenticated;
 use Core\Middleware\Guest;
@@ -20,13 +20,13 @@ class Middleware
         if (!$key) return;
 
         if (!array_key_exists($key, self::MAP)) {
-            throw new Exception('No middleware matched this request');
+            throw new Exception("No middleware matched ($key)");
         };
 
         $middleware = self::MAP[$key];
 
         if (!$middleware) {
-            throw new Exception('No middleware matched this request');
+            throw new Exception("No middleware matched ($key)");
         }
 
         (new $middleware)->handle();
