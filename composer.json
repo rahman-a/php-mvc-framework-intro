@@ -1,0 +1,19 @@
+{
+  "name": "ahmdev/php_demo-redo",
+  "autoload": {
+    "psr-4": {
+      "Core\\": "src/Core/",
+      "Http\\": "src/Http/"
+    }
+  },
+  "authors": [
+    {
+      "name": "rahman-a",
+      "email": "ahm.abdrahman@gmail.com"
+    }
+  ],
+  "scripts": {
+    "dev": "php -S localhost:3000 -t public"
+  },
+  "require": {}
+}
